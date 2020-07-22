@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.ProfileActivity">
+
+
+
+    <TextView
+        android:id="@+id/PrsonalDetails"
+        android:layout_width="287dp"
+        android:layout_height="56dp"
+        android:layout_margin="14dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/pdeatails"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_margin="14dp"
+        android:layout_marginTop="36dp"
+        android:hint="@string/id"
+        android:textColor="@android:color/holo_blue_light"
+        android:textColorHint="?android:attr/textColorPrimaryNoDisable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PrsonalDetails"
+        android:importantForAutofill="no"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_margin="14dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/שם_משפחה"
+        android:textColor="@android:color/holo_blue_light"
+        android:textColorHighlight="@android:color/widget_edittext_dark"
+        android:textColorHint="@android:color/background_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+    <EditText
+        android:id="@+id/LastName"
+        android:layout_width="223dp"
+        android:layout_height="59dp"
+        android:layout_margin="14dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/famname"
+        android:textColor="@android:color/holo_blue_light"
+        android:textColorHighlight="#03A9F4"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName" />
+
+
+    <EditText
+        android:id="@+id/Health"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_margin="14dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/תאריך_לידה"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LastName"
+        android:inputType="date"
+        android:importantForAutofill="no" />
+    <EditText
+        android:id="@+id/Gender"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_margin="14dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/קופח"
+        android:textColor="@android:color/holo_blue_light"
+        android:textColorHighlight="@android:color/holo_blue_bright"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Health"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_margin="14dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/מין"
+        android:textColor="@android:color/holo_blue_light"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Gender"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+
+
+    <Button
+        android:id="@+id/sent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sendbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Gender"
+        app:layout_constraintVertical_bias="0.155" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

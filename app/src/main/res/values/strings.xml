@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Emergencies</string>
+    <string name="google_maps_key" />
+    <string name="title_activity_maps" />
+    <string name="הרשמה">הרשמה</string>
+    <string name="phone_number">Phone number</string>
+    <string name="name">Name</string>
+    <string name="התחבר">התחבר</string>
+    <string name="באמצעות">באמצעות טלפון זה גורמי החירום יוכלו ליצור איתך קשר</string>
+    <string name="yo">yo</string>
+    <string name="welcome">Welcome</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="sign_in">Sign In</string>
+    <string name="enter_verification_code">enter verification code</string>
+    <string name="wait_for_the_code">Wait for the code</string>
+    <string name="spinner_title" />
+    <string-array name="event">
+        <item name="התקף לב"></item>
+        <item name="תאונה"></item>
+        <item name="לחץ דם"></item>
+        <item name="שבץ מוחי"></item>
+        <item name="כוויות"></item>
+        <item name="לידה"></item>
+        <item name="התקף אסטמה"></item>
+        <item name="אחר"></item>
+    </string-array>
+
+    <string-array name="event2">
+        <item name="תאונה"> </item>
+        <item name="חטיפה"> </item>
+        <item name="גניבה"> </item>
+        <item name="אלימות"> </item>
+        <item name="אחר"></item>
+    </string-array>
+    <string-array name="event3">
+        <item name="שריפה"> </item>
+        <item name="בעל חיים תקוע"> </item>
+        <item name="חילוץ"> </item>
+        <item name="אחר"></item>
+    </string-array>
+    <string-array name="event4">
+        <item name="החלפת גלגל"> </item>
+        <item name="הנעת רכב"> </item>
+        <item name="רכב תקוע"></item>
+        <item name="חילוץ"> </item>
+
+    </string-array>
+    <string name="title_activity_bleed">BleedActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="enter_your_mobile_number">enter your mobile number</string>
+    <string name="con">Continue</string>
+    <string name="may_i_ask_your_phone_number">May I ask your phone number?</string>
+    <string name="id">תעודת זהות</string>
+    <string name="famname">שם פרטי</string>
+    <string name="sex">מין</string>
+    <string name="phone">טלפון</string>
+    <string name="hospital">קופת חולים</string>
+    <string name="born">תאריך לידה</string>
+    <string name="sendbutton">שלח</string>
+    <string name="pdeatails">פרטים אישיים</string>
+    <string name="מצא_כיצד_לסייע">מצא כיצד לסייע לאדם מחוסר הכרה שאיננו נושם על ידי הטיית ראשו לאחור והסתכל אם בית החזה עולה כשאדם מחוסר הכרה השרירים הופכים להיות רפויים והלשון שהיא שריר יכולה לחסום את דרכי האויר על ידיי הטיית הראש לאחור הלשון נמתחת ודרכי האויר נפתחות הסתכל על בית החזה ושים לב אם הוא מתרומם אם בית החזה מתרומם האדם נושם</string>
+    <string name="astma">astma</string>
+    <string name="ממה_עלי_לעשות">ממה עלי לעשות אם האדם מספיק לנשום</string>
+    <string name="אסטמה_היא_מצב">אסטמה היא מצב רפואי המשפיע על דרכי האויר שהם הצינורות הנושאים את האויר אל ומתוך הריאות אצל המטופל בהתקף אסטמה דרכי האויר הופכות להיות מוצרות ומקשות על הנשימה</string>
+    <string name="שם_משפחה">שם משפחה</string>
+    <string name="קופח">קופ״ח</string>
+    <string name="תאריך_לידה">תאריך לידה</string>
+    <string name="מין">מין</string>
+</resources>

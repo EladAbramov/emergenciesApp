@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="logout_btn" type="id" />
+    <item name="madaButton" type="id" />
+    <item name="yedidim" type="id" />
+    <item name="logoutButton" type="id" />
+    <item name="first_aid" type="id" />
+    <item name="policeButton" type="id" />
+    <item name="mcbiButton" type="id" />
+    <item name="peopleButton" type="id" />
+    <item name="mcbiSpinner" type="id" />
+    <item name="yedidimSpinner" type="id" />
+    <item name="peopleSpinner" type="id" />
+    <item name="editTextMobile" type="id" />
+    <item name="buttonContinue" type="id" />
+    <item name="madaSpinner" type="id" />
+    <item name="policeSpinner" type="id" />
+</resources>
