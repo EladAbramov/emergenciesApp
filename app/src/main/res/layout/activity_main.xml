@@ -17,7 +17,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/madaButto"
+        app:layout_constraintStart_toEndOf="@+id/madaButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.093"
         app:srcCompat="@mipmap/ic_police_round" />
@@ -38,7 +38,7 @@
         app:srcCompat="@mipmap/ic_mcbi_round" />
 
     <ImageButton
-        android:id="@+id/madaButto"
+        android:id="@+id/madaButton"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:background="@mipmap/ic_launcher_foreground"
@@ -94,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/madaButto"
+        app:layout_constraintTop_toBottomOf="@+id/madaButton"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
@@ -179,10 +179,11 @@
 
     <Button
         android:id="@+id/SignOut"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
+        android:layout_width="115dp"
+        android:layout_height="55dp"
         android:text="התנתק"
         android:textAllCaps="false"
+        android:layout_marginRight="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.816"
@@ -190,19 +191,23 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SmallSp,UnknownIdInLayout"
         app:layout_constraintVertical_bias="0.936" />
-
     <Button
         android:id="@+id/first_aid"
-        android:layout_width="90dp"
-        android:layout_height="40dp"
-        android:background="@android:color/holo_red_dark"
+        android:layout_width="115dp"
+        android:layout_height="55dp"
         android:text="עזרה ראשונה"
-        app:layout_constraintBottom_toTopOf="@+id/SignOut"
+        android:textAllCaps="false"
+        android:layout_marginRight="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintHorizontal_bias="0.816"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.936"
         app:layout_constraintTop_toBottomOf="@+id/map"
-        app:layout_constraintVertical_bias="0.735" />
+        app:layout_constraintBottom_toTopOf="@+id/SignOut"/>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
