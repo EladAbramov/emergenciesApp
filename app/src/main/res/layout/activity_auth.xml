@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:alwaysDrawnWithCache="true"
     android:animateLayoutChanges="true"
-    android:background="@drawable/background2"
+    android:background="@drawable/auth_screen_background"
     tools:context=".authentication.AuthActivity">
 
     <TextView
@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="168dp"
+        android:layout_marginEnd="18dp"
         android:text="@string/may_i_ask_your_phone_number"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
         android:textColor="@color/colorPrimary"
@@ -30,10 +31,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
         android:layout_marginTop="284dp"
-        android:digits="0123456789"
-        android:hint="@string/enter_your_mobile_number"
+        android:digits="+0123456789"
+        android:hint="@string/dont_forget_the_area_code"
         android:inputType="phone"
-        android:maxLength="12"
+        android:maxLength="13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"

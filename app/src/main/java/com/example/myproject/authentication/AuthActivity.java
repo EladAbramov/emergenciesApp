@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class AuthActivity extends AppCompatActivity {
-    public static EditText editTextMobile;
+    public EditText editTextMobile;
     Button btnContinue;
     FirebaseUser currentUser;
 
@@ -37,7 +37,7 @@ public class AuthActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     String mobileNo = editTextMobile.getText().toString().trim();
                     if (mobileNo.isEmpty() || mobileNo.length() < 12) {
-                        editTextMobile.setError("Enter a valid mobile");
+                        editTextMobile.setError("Enter auth_screen_background valid mobile");
                         editTextMobile.requestFocus();
                         return;
                     }
@@ -48,7 +48,5 @@ public class AuthActivity extends AppCompatActivity {
             });
         }
     }
-
-
 
 }

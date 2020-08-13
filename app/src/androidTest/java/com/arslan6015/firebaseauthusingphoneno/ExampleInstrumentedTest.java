@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Instrumented test, which will execute on an Android device.
  *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ * @see <auth_screen_background href="http://d.android.com/tools/testing">Testing documentation</auth_screen_background>
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {

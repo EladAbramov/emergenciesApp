@@ -11,7 +11,7 @@
     <string name="welcome">Welcome</string>
     <string name="sign_out">Sign Out</string>
     <string name="sign_in">Sign In</string>
-    <string name="enter_verification_code">enter verification code</string>
+    <string name="enter_verification_code">Enter SMS code</string>
     <string name="wait_for_the_code">Wait for the code</string>
     <string name="spinner_title" />
     <string-array name="event">
@@ -51,9 +51,9 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
-    <string name="enter_your_mobile_number">enter your mobile number</string>
+    <string name="dont_forget_the_area_code">Example: +972 542539821</string>
     <string name="con">Continue</string>
-    <string name="may_i_ask_your_phone_number">May I ask your phone number?</string>
+    <string name="may_i_ask_your_phone_number">Enter your phone number</string>
     <string name="id">תעודת זהות</string>
     <string name="famname">שם פרטי</string>
     <string name="sex">מין</string>
