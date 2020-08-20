@@ -67,7 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
-        SharedPreferences sp = getSharedPreferences("myProject", MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("myproject", MODE_PRIVATE);
         final String phoneNumber = sp.getString("phone_number", null);
 
         if (phoneNumber != null) {

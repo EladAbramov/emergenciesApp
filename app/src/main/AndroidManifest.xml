@@ -29,6 +29,7 @@
         <activity android:name=".activities.BurnActivity" />
         <activity android:name=".activities.FirstAid2Activity" />
         <activity android:name=".activities.FirstAidActivity" />
+        <activity android:name=".activities.MapsActivity" />
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

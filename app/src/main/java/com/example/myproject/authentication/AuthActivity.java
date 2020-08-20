@@ -21,7 +21,6 @@ public class AuthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-
         //initialize fields
         editTextMobile = findViewById(R.id.editTextMobile);
         btnContinue = findViewById(R.id.buttonContinue);
@@ -44,8 +43,10 @@ public class AuthActivity extends AppCompatActivity {
                     Intent intent = new Intent(AuthActivity.this, VerifyPhoneActivity.class);
                     intent.putExtra("mobile", mobileNo);
                     startActivity(intent);
+
                 }
             });
+
         }
     }
 

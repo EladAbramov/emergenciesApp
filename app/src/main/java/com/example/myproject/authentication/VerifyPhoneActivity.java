@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myproject.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+
+
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -49,54 +52,53 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                         editTextCode.requestFocus();
                         return;
                     }
-
                     verifyVerificationCode(code);
+
                 }
             });
 
+    }
+
+
+    private void sendVerificationCode(String mobile) {
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                "+" + mobile,                 //phoneNo that is given by user
+                60,                             //Timeout Duration
+                TimeUnit.SECONDS,                   //Unit of Timeout
+                TaskExecutors.MAIN_THREAD,          //Work done on main Thread
+                mCallbacks);                       // OnVerificationStateChangedCallbacks
+    }
+
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
+            new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+        @Override
+        public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+            String code = phoneAuthCredential.getSmsCode();
+            if (code != null) {
+                editTextCode.setText(code);
+                Log.i("", code);
+                verifyVerificationCode(code);
+            }
         }
 
-        private void sendVerificationCode(String mobile) {
-            PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                    "+" + mobile,                 //phoneNo that is given by user
-                    60,                             //Timeout Duration
-                    TimeUnit.SECONDS,                   //Unit of Timeout
-                    TaskExecutors.MAIN_THREAD,          //Work done on main Thread
-                    mCallbacks);                       // OnVerificationStateChangedCallbacks
+        @Override
+        public void onVerificationFailed(FirebaseException e) {
+            Toast.makeText(VerifyPhoneActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            Log.e("TAG", Objects.requireNonNull(e.getMessage()));
         }
-
-        private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
-                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-            @Override
-            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                String code = phoneAuthCredential.getSmsCode();
-                if (code != null) {
-                    editTextCode.setText(code);
-                    verifyVerificationCode(code);
-                }
-            }
-
-            @Override
-            public void onVerificationFailed(FirebaseException e) {
-                Toast.makeText(VerifyPhoneActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                Log.e("TAG", Objects.requireNonNull(e.getMessage()));
-            }
-
-            @Override
-            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                mVerificationId = s;
-            }
-        };
-
-        private void verifyVerificationCode(String code) {
-            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
-            signInWithPhoneAuthCredential(credential);
+        @Override
+        public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+            mVerificationId = s;
         }
-
+    };
+    private void verifyVerificationCode(String code) {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
+        signInWithPhoneAuthCredential(credential);
+    }
         private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-            mAuth.signInWithCredential(credential)
-                    .addOnCompleteListener(VerifyPhoneActivity.this,
-                            new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(VerifyPhoneActivity.this,
+                        new OnCompleteListener<AuthResult>() {
 
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {

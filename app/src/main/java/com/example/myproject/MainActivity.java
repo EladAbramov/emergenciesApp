@@ -12,7 +12,9 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myproject.activities.FirstAidActivity;
+import com.example.myproject.activities.MapsActivity;
 import com.example.myproject.authentication.AuthActivity;
+import com.google.android.gms.maps.MapView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton yedidimButton = findViewById(R.id.yedidim);
         final ImageButton pepoleButton = findViewById(R.id.peopleButton);
         final Button first_aid = findViewById(R.id.first_aid);
+        MapView map = findViewById(R.id.map);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +48,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToNextActivity3 = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(goToNextActivity3);
+                finish();
+            }
+        });
         first_aid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -96,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         spiner.setAdapter(eventAdapter);
         spiner.setSelection(0, false);
 
-        final Spinner policespinner = findViewById(R.id.policeSpinner);
+        final Spinner policeSpinner = findViewById(R.id.policeSpinner);
         final List<String> police = new ArrayList<>();
         police.add("תאונה");
         police.add("חטיפה");
@@ -106,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
 
         final ArrayAdapter<String> eventAdapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, police);
         eventAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        policespinner.setAdapter(eventAdapter2);
-        policespinner.setSelection(0, false);
+        policeSpinner.setAdapter(eventAdapter2);
+        policeSpinner.setSelection(0, false);
 
         final Spinner macbispinner = findViewById(R.id.mcbiSpinner);
         final List<String> macbi = new ArrayList<>();
