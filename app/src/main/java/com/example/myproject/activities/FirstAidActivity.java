@@ -26,7 +26,7 @@ public class FirstAidActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FirstAidActivity.this, FirstAid2Activity.class));
+                startActivity(new Intent(FirstAidActivity.this, StrokeActivity.class));
             }
         });
         burn.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +50,7 @@ public class FirstAidActivity extends AppCompatActivity {
         hyperthermia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FirstAidActivity.this, Heat_Stoke_Activity.class));
+                startActivity(new Intent(FirstAidActivity.this, Hyperthermia_Activity.class));
             }
         }) ;
         resucitation.setOnClickListener(new View.OnClickListener() {

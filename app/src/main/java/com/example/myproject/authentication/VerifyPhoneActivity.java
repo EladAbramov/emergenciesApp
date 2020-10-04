@@ -1,11 +1,14 @@
 package com.example.myproject.authentication;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -47,6 +49,7 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     String code = editTextCode.getText().toString().trim();
+
                     if (code.isEmpty() || code.length() < 6) {
                         editTextCode.setError("Enter valid code");
                         editTextCode.requestFocus();
@@ -59,7 +62,6 @@ public class VerifyPhoneActivity extends AppCompatActivity {
 
     }
 
-
     private void sendVerificationCode(String mobile) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 "+" + mobile,                 //phoneNo that is given by user
@@ -69,14 +71,12 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                 mCallbacks);                       // OnVerificationStateChangedCallbacks
     }
 
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
-            new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
             String code = phoneAuthCredential.getSmsCode();
             if (code != null) {
                 editTextCode.setText(code);
-                Log.i("", code);
                 verifyVerificationCode(code);
             }
         }
@@ -88,36 +88,39 @@ public class VerifyPhoneActivity extends AppCompatActivity {
         }
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+            super.onCodeSent(s, forceResendingToken);
             mVerificationId = s;
         }
     };
     private void verifyVerificationCode(String code) {
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
-        signInWithPhoneAuthCredential(credential);
-    }
-        private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(VerifyPhoneActivity.this,
-                        new OnCompleteListener<AuthResult>() {
-
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                //verification successful we will start the profile activity
-                                Intent intent = new Intent(VerifyPhoneActivity.this, ProfileActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                                finish();
-
-                            } else {
-                                String message = "Somthing is wrong, we will fix it soon...";
-                                if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                    message = "Invalid code entered...";
-                                }
-                                Toast.makeText(VerifyPhoneActivity.this,message,Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+        try{
+            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
+            signInWithPhoneAuthCredential(credential);
+        }catch (Exception e) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Verification Code is wrong, try again", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
         }
+    }
+    private void signInWithPhoneAuthCredential(final PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential).addOnCompleteListener(VerifyPhoneActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        //verification successful we will start the profile activity
+                        Intent intent = new Intent(VerifyPhoneActivity.this, ProfileActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        String message = "Somthing is wrong, we will fix it soon...";
+                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                            message = "Invalid code entered...";
+                        }
+                        Toast.makeText(VerifyPhoneActivity.this,message,Toast.LENGTH_SHORT).show();
+                    }
+            }
+        });
+    }
 
 }

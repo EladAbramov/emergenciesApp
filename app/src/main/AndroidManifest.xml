@@ -23,11 +23,11 @@
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/backup_descriptor">
         <activity android:name=".activities.ResuscitationActivity" />
-        <activity android:name=".activities.Heat_Stoke_Activity" />
+        <activity android:name=".activities.Hyperthermia_Activity" />
         <activity android:name=".activities.BleedActivity" />
         <activity android:name=".activities.AsthmaActivity" />
         <activity android:name=".activities.BurnActivity" />
-        <activity android:name=".activities.FirstAid2Activity" />
+        <activity android:name=".activities.StrokeActivity" />
         <activity android:name=".activities.FirstAidActivity" />
         <activity android:name=".activities.MapsActivity" />
         <activity android:name=".MainActivity" >
@@ -38,14 +38,13 @@
         </activity>
         <activity android:name=".authentication.VerifyPhoneActivity" />
         <activity android:name=".authentication.AuthActivity" />
+
         <activity android:name=".authentication.ProfileActivity" />
 
         <meta-data
             android:name="firebase_analytics_collection_deactivated"
-            android:value="true" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="false" />
+
         <meta-data
             android:name="firebase_analytics_collection_enabled"
             android:value="true" />
@@ -54,7 +53,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyDjdTtm7IQC7l2lyPS05aopYRsqFwrVEjw" />
 
     </application>
 

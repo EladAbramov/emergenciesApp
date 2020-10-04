@@ -17,6 +17,7 @@
             android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:text="עזרה ראשונה טרם הגעת מדא"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@android:color/holo_red_dark" />
@@ -25,17 +26,20 @@
             android:id="@+id/stroke"
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            android:layout_margin="10dp"
             android:background="@drawable/stoke"
             android:text="שבץ מוחי"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@android:color/widget_edittext_dark" />
+            android:textColor="@android:color/black" />
 
         <Button
             android:id="@+id/burn"
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            android:layout_margin="10dp"
             android:background="@drawable/butn"
             android:text="כויות"
+            android:textColor="@android:color/black"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <Button
@@ -44,6 +48,8 @@
             android:layout_height="58dp"
             android:background="@drawable/astma"
             android:text="אסטמה"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/black"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <Button
@@ -52,15 +58,18 @@
             android:layout_height="58dp"
             android:background="@drawable/bleed"
             android:text="דימום"
+            android:layout_margin="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@android:color/widget_edittext_dark" />
+            android:textColor="@android:color/black" />
 
         <Button
             android:id="@+id/hyperthrmia"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:background="@drawable/hyperthermia"
-            android:text=" מכת חום"
+            android:text="מכת חום"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/black"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <Button
@@ -69,8 +78,10 @@
             android:layout_height="58dp"
             android:background="@drawable/unconscious"
             android:text="מחוסר הכרה"
+            android:layout_margin="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textDirection="firstStrongRtl" />
+            android:textDirection="firstStrongRtl"
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

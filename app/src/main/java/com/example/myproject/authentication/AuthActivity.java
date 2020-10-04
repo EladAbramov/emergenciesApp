@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myproject.MainActivity;
 import com.example.myproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,7 +29,7 @@ public class AuthActivity extends AppCompatActivity {
 
         //check whether the user is logged in
         if (currentUser != null) {
-            Intent intent = new Intent(AuthActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(AuthActivity.this, MainActivity.class);
             startActivity(intent);
         } else {
             btnContinue.setOnClickListener(new View.OnClickListener() {

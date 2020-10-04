@@ -15,4 +15,8 @@
     <item name="buttonContinue" type="id" />
     <item name="madaSpinner" type="id" />
     <item name="policeSpinner" type="id" />
+    <item name="titleAuth" type="id" />
+    <item name="inputPhoneNumber" type="id" />
+
+
 </resources>

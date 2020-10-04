@@ -1,13 +1,17 @@
 package com.example.myproject;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,26 +24,29 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import pl.droidsonroids.gif.GifImageView;
 
-
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     FirebaseAuth firebaseAuth;
     Button button;
-
+    MediaPlayer mp;
+    Spinner peopleSpinner;
+    String p="אמא";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mp = MediaPlayer.create(this, R.raw.police);
 
         firebaseAuth = FirebaseAuth.getInstance();
         button = findViewById(R.id.SignOut);
-        findViewById(R.id.madaButton);
+        final ImageButton madaButton = findViewById(R.id.madaButton);
         final ImageButton policeButton = findViewById(R.id.policeButton);
         final ImageButton macbiButton = findViewById(R.id.mcbiButton);
         final ImageButton yedidimButton = findViewById(R.id.yedidim);
         final ImageButton pepoleButton = findViewById(R.id.peopleButton);
         final Button first_aid = findViewById(R.id.first_aid);
         MapView map = findViewById(R.id.map);
-
+        GifImageView gif = findViewById(R.id.imageView2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent goToNextActivity3 = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(goToNextActivity3);
                 finish();
+            }
+        });
+        gif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
             }
         });
         first_aid.setOnClickListener(new View.OnClickListener() {
@@ -85,9 +97,17 @@ public class MainActivity extends AppCompatActivity {
         pepoleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                setCallPeople();
+
+                setCallPeople(p);
             }
         });
+        madaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                setThePhoneCallMada();
+            }
+        });
+
 
         final Spinner spiner = (Spinner) findViewById(R.id.madaSpinner);
         final List<String> mada = new ArrayList<>();
@@ -143,19 +163,70 @@ public class MainActivity extends AppCompatActivity {
         yedidimspinner.setAdapter(eventAdapter4);
         yedidimspinner.setSelection(0, false);
 
-        final Spinner spinner = findViewById(R.id.peopleSpinner);
-        final List<String> people = new ArrayList<>();
-        people.add("אמא");
-        people.add("אבא");
-        people.add("אח/אחות");
-        people.add("אחר");
-        final ArrayAdapter<String> eventAdapter5 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, people);
-        eventAdapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(eventAdapter5);
-        spinner.setSelection(0, false);
-    }
 
+        peopleSpinner = findViewById(R.id.peopleSpinner);
+        ArrayAdapter<CharSequence> eventAdapter5 = ArrayAdapter.createFromResource(this, R.array.people, android.R.layout.simple_spinner_item);
+        eventAdapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        peopleSpinner.setAdapter(eventAdapter5);
+        peopleSpinner.setSelection(0, false);
+        peopleSpinner.setOnItemSelectedListener(this);
+
+    }
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        p = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), p, Toast.LENGTH_SHORT).show();
+    }
+    public void onNothingSelected(AdapterView<?> parent) { }
+
+    public void setCallPeople(String p) {
+        if(p==("אמא")){
+            final Intent phoneCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "0500000000", null));
+            try {
+                startActivity(phoneCall);
+                finish();
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if(p.equals("אבא")){
+            final Intent phoneCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "0500000001", null));
+            try {
+                startActivity(phoneCall);
+                finish();
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if(p.equals("אח/אחות")){
+            final Intent phoneCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "0500000002", null));
+            try {
+                startActivity(phoneCall);
+                finish();
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if(p.equals("אחר")){
+            final Intent phoneCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "0500000003", null));
+            try {
+                startActivity(phoneCall);
+                finish();
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+       /* final Intent textMessage = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:0500000000"));
+        textMessage.putExtra("sms_body", "מקרה חירום ");
+        try {
+            startActivity(textMessage);
+        } catch (final Exception ignored) {
+
+        }*/
+
+    }
     private void setThePhoneCallPolice() {
+        playSiren();
         final Intent phoneCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "100", null));
         try {
             startActivity(phoneCall);
@@ -195,21 +266,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void setCallPeople() {
-        final Intent phoneCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "", null));
+    public void setThePhoneCallMada() {
+        final Intent phoneCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "101", null));
         try {
             startActivity(phoneCall);
             finish();
         } catch (final Exception e) {
             e.printStackTrace();
         }
-        final Intent textMessage = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:0500000000"));
-        textMessage.putExtra("sms_body", "מקרה חירום ");
-        try {
-            startActivity(textMessage);
-        } catch (final Exception ignored) {
-
-        }
 
     }
+
+    public void playSiren(){
+        try {
+            if (mp.isPlaying()) {
+                mp.stop();
+                mp.release();
+                mp = MediaPlayer.create(this, R.raw.police);
+            }
+            mp.start();
+        }
+        catch(Exception e) { e.printStackTrace(); }
+    }
+
+
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Emergencies</string>
+    <string name="app_name">Emg-Now</string>
     <string name="google_maps_key" />
     <string name="title_activity_maps" />
     <string name="הרשמה">הרשמה</string>
@@ -11,8 +11,8 @@
     <string name="welcome">Welcome</string>
     <string name="sign_out">Sign Out</string>
     <string name="sign_in">Sign In</string>
-    <string name="enter_verification_code">Enter SMS code</string>
-    <string name="wait_for_the_code">Wait for the code</string>
+    <string name="enter_verification_code">...הכנס קוד</string>
+    <string name="wait_for_the_code">המתן לקוד...</string>
     <string name="spinner_title" />
     <string-array name="event">
         <item name="התקף לב"></item>
@@ -70,4 +70,13 @@
     <string name="קופח">קופ״ח</string>
     <string name="תאריך_לידה">תאריך לידה</string>
     <string name="מין">מין</string>
+
+
+    <string-array name="people">
+        <item>אמא</item>
+        <item>אבא</item>
+        <item>אח/אחות</item>
+        <item>אחר</item>
+    </string-array>
+
 </resources>

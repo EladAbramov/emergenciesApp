@@ -55,7 +55,6 @@ public class ProfileActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(ProfileActivity.this,"עודכן בהצלחה",Toast.LENGTH_SHORT).show();
-
                         }
 
                     }).addOnFailureListener(new OnFailureListener() {
@@ -67,18 +66,16 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
-        SharedPreferences sp = getSharedPreferences("myproject", MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("myProject", MODE_PRIVATE);
         final String phoneNumber = sp.getString("phone_number", null);
 
         if (phoneNumber != null) {
-            db.collection(ProfileActivity.nameOfCollection).document(phoneNumber).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            db.collection(nameOfCollection).document(phoneNumber).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
-
                         if (document != null) {
                             if (document.exists()) {
                                 Log.d("", "DocumentSnapshot data: " + document.getData());
