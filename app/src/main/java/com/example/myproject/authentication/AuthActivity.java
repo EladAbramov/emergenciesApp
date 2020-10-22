@@ -12,7 +12,9 @@ import com.example.myproject.MainActivity;
 import com.example.myproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+//מחלקה לרישום המשתמש
+//המשתמש מתבקש למלא את מספר הטלפון שלו כולל קידומת מדינה
+//לאחר מכן המסך עובר למסך אימות קוד הודעה
 public class AuthActivity extends AppCompatActivity {
     public EditText editTextMobile;
     Button btnContinue;
@@ -23,7 +25,7 @@ public class AuthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
         //initialize fields
-        editTextMobile = findViewById(R.id.editTextMobile);
+        editTextMobile = findViewById(R.id.inputPhoneNumber);
         btnContinue = findViewById(R.id.buttonContinue);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 

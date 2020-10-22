@@ -25,7 +25,8 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
-
+//מחלקה למילוי קוד הודעה
+//המערכת בודקת האם המספר פלאפון תקין והאם המשתמש לא קיים במערכת אם כך הדבר יישלח למשתמש הודעה עם קוד למילוי והתקדמות למסך הראשי או למילוי פרטים
 public class VerifyPhoneActivity extends AppCompatActivity {
     private String mVerificationId;
     private EditText editTextCode;

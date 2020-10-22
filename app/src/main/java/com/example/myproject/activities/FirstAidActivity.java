@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.myproject.R;
-
+//מחלקה שמאגדת בתוכה את כל הנושאים השייכים לעזרה ראשונה
+//מקבלים מכל מחלקה את הנתונים ואת התוכן שלה אחרי לחיצת כפתור
 public class FirstAidActivity extends AppCompatActivity {
 
     @Override
@@ -50,7 +51,7 @@ public class FirstAidActivity extends AppCompatActivity {
         hyperthermia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FirstAidActivity.this, Hyperthermia_Activity.class));
+                startActivity(new Intent(FirstAidActivity.this, HyperthermiaActivity.class));
             }
         }) ;
         resucitation.setOnClickListener(new View.OnClickListener() {

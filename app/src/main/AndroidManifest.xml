@@ -23,7 +23,7 @@
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/backup_descriptor">
         <activity android:name=".activities.ResuscitationActivity" />
-        <activity android:name=".activities.Hyperthermia_Activity" />
+        <activity android:name=".activities.HyperthermiaActivity" />
         <activity android:name=".activities.BleedActivity" />
         <activity android:name=".activities.AsthmaActivity" />
         <activity android:name=".activities.BurnActivity" />

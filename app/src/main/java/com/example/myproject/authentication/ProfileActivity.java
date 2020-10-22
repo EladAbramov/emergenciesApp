@@ -23,7 +23,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
-
+//מחלקה של רישום פרטים אישיים של המשתמש כגון שם תאריך לידה וכו׳..
+//מסך זה מגיע לאחר שאימתנו חשבון על ידי קבלת הודעה עם קוד
+//לאחר סיום המסך המערכת שומרת את הפרטים וממשיכה למסך הראשי
+//המערכת גם בודקת האם המשתמש מילא פרטים אישיים כבר או לא כלומר האם הוא רשום מערכת ורק אם לא - ממלאים פרטים אחרת ממשיכים למסך הראשי
 public class ProfileActivity extends AppCompatActivity {
 
     public static String nameOfCollection = "user";

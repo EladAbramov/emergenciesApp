@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.droidsonroids.gif.GifImageView;
+//תפריט ראשי עם כל הכפתורים לשירותי החירום
+//כולל ספינרים ואפשרויות להתקשרות לכל אחד משירותי החירום או איש קשר שהמשתמש בחר
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     FirebaseAuth firebaseAuth;
