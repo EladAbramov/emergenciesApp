@@ -49,8 +49,9 @@ public class ProfileActivity extends AppCompatActivity {
                 EditText health = findViewById(R.id.Health);
                 EditText gender = findViewById(R.id.Gender);
                 EditText date = findViewById(R.id.date);
-
+                //שולפים את המספר טלפון של המשתמש מפיירביייס
                 String phone = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getPhoneNumber();
+                //מזינים את כל הפרטים שהזנו לתוך הדטהבייס
                 User user = new User(id.getText().toString(), name.getText().toString(), lastName.getText().toString(), health.getText().toString(), gender.getText().toString(), date.getText().toString());
 
                 if (phone != null) {
@@ -71,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
         SharedPreferences sp = getSharedPreferences("myProject", MODE_PRIVATE);
         final String phoneNumber = sp.getString("phone_number", null);
-
+        //לכל מסמך בדטהבייס יש שם והשם שלו הוא מספר טלפון של המשתמש
         if (phoneNumber != null) {
             db.collection(nameOfCollection).document(phoneNumber).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,9 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.myproject.activities.FirstAidActivity;
 import com.example.myproject.activities.MapsActivity;
 import com.example.myproject.authentication.AuthActivity;
@@ -33,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Button button;
     MediaPlayer mp;
     Spinner peopleSpinner;
-    String p="אמא";
+    String p = "אמא";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -57,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(intent);
             }
         });
+        //של המפות
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(new Intent(MainActivity.this, FirstAidActivity.class));
             }
         });
-
+        //כפרותים של החירום שבו מתקשרים לחירום
         yedidimButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -110,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-
+        //כל הספינר של מדא
         final Spinner spiner = (Spinner) findViewById(R.id.madaSpinner);
         final List<String> mada = new ArrayList<>();
         mada.add("התקף לב");
@@ -179,9 +178,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Toast.makeText(parent.getContext(), p, Toast.LENGTH_SHORT).show();
     }
     public void onNothingSelected(AdapterView<?> parent) { }
-
+    //פונקציה להתקשרות לאנשי קשר על פי בחירה
     public void setCallPeople(String p) {
-        if(p==("אמא")){
+        if(p.equals("אמא")){
             final Intent phoneCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "0500000000", null));
             try {
                 startActivity(phoneCall);
@@ -218,13 +217,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }
 
-       /* final Intent textMessage = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:0500000000"));
-        textMessage.putExtra("sms_body", "מקרה חירום ");
-        try {
-            startActivity(textMessage);
-        } catch (final Exception ignored) {
 
-        }*/
 
     }
     private void setThePhoneCallPolice() {
@@ -267,7 +260,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             e.printStackTrace();
         }
     }
-
+    //פונקציה להתקשרות למדא
     public void setThePhoneCallMada() {
         final Intent phoneCall = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "101", null));
         try {
@@ -278,7 +271,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
     }
-
+    //פונקציה להפעלת הסירנה
     public void playSiren(){
         try {
             if (mp.isPlaying()) {
